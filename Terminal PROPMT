@@ -1,0 +1,112 @@
+codeally@936960c12810:~/project$ psql --username=freecodecamp --dbname=postgres
+psql (12.9 (Ubuntu 12.9-2.pgdg20.04+1))
+Type "help" for help.
+
+postgres=> \c
+You are now connected to database "postgres" as user "freecodecamp".
+postgres=> \d
+Did not find any relations.
+postgres=> CREATE DATABASE salon;
+CREATE DATABASE
+postgres=> \d
+Did not find any relations.
+postgres=> \c salon
+You are now connected to database "salon" as user "freecodecamp".
+salon=> \d 
+Did not find any relations.
+salon=> \l
+salon=> CREATE TABLE customers();
+CREATE TABLE
+salon=> CREATE TABLE appointments();
+CREATE TABLE
+salon=> CREATE TABLE services();
+CREATE TABLE
+salon=> ALTER TABLE customers ADD COLUMN customer_id SERIAL PRIMARY KEY;
+ALTER TABLE
+salon=> ALTER TABLE customers ADD COLUMN phone VARCHAR(30) UNIQUE;
+ALTER TABLE
+salon=> ALTER TABLE customers ADD COLUMN name VARCHAR(255);
+ALTER TABLE
+salon=> ALTER TABLE appointments ADD COLUMN appointment_id SERIAL PRIMARY KEY;
+ALTER TABLE
+salon=> ALTER TABLE appointments ADD COLUMN time VARCHAR(255);
+ALTER TABLE
+salon=> ALTER TABLE appointments ADD COLUMN service_id INT;
+ALTER TABLE
+salon=> ALTER TABLE appointments ADD COLUMN customer_id INT;
+ALTER TABLE
+salon=> ALTER TABLE services ADD COLUMN service_id SERIAL PRIMARY KEY;
+ALTER TABLE
+salon=> ALTER TABLE services ADD COLUMN name VARCHAR(255);
+ALTER TABLE
+salon=> ALTTER TABLE appointments ADD FORGEIGN KEY(customer_id) REFERENCES customers(customer_id);
+ERROR:  syntax error at or near "ALTTER"
+LINE 1: ALTTER TABLE appointments ADD FORGEIGN KEY(customer_id) REFE...
+        ^
+salon=> ALTER TABLE appointments ADD FORGEIGN KEY(customer_id) REFERENCES customers(customer_id);
+ERROR:  type "key" does not exist
+LINE 1: ALTER TABLE appointments ADD FORGEIGN KEY(customer_id) REFER...
+                                              ^
+salon=> ALTER TABLE appointments ADD FOREIGN KEY(customer_id) REFERENCES customers(customer_id);
+ALTER TABLE
+salon=> ALTER TABLE appointments ADD FOREIGN KEY(service_id) REFERENCES services(service_id);
+ALTER TABLE
+salon=> \d services
+salon=> INSERT INTO services (name) VALUES ('Cut');
+INSERT 0 1
+salon=> INSERT INTO services (name) VALUES ('Color');
+INSERT 0 1
+salon=> INSERT INTO services (name) VALUES ('Perm');
+INSERT 0 1
+salon=> INSERT INTO services (name) VALUES ('Style');
+FATAL:  terminating connection due to administrator command
+server closed the connection unexpectedly
+        This probably means the server terminated abnormally
+        before or while processing the request.
+The connection to the server was lost. Attempting reset: Succeeded.
+salon=> INSERT INTO services (name) VALUES ('Style');
+FATAL:  terminating connection due to administrator command
+server closed the connection unexpectedly
+        This probably means the server terminated abnormally
+        before or while processing the request.
+The connection to the server was lost. Attempting reset: Succeeded.
+salon=> SELECT * FROM services;
+ service_id | name  
+------------+-------
+          1 | Cut
+          2 | Color
+          3 | Perm
+(3 rows)
+
+salon=> INSERT INTO services (name) VALUES ('Style');
+INSERT 0 1
+salon=> INSERT INTO services (name) VALUES ('Trim');
+INSERT 0 1
+salon=> SELECT * FROM services;
+salon=> ^C
+salon=> SELECT * FROM appointments;
+
+ appointment_id | time  | service_id | customer_id 
+----------------+-------+------------+-------------
+              7 | 10:30 |          1 |           6
+(1 row)
+
+salon=> SELECT * FROM customers;
+
+ customer_id |    phone     | name 
+-------------+--------------+------
+           6 | 555-555-5555 | 
+(1 row)
+
+salon=> 
+salon=> SELECT * FROM services;
+ service_id | name  
+------------+-------
+          1 | Cut
+          2 | Color
+          3 | Perm
+          4 | Style
+          5 | Trim
+(5 rows)
+
+salon=> 
