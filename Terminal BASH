@@ -1,0 +1,61 @@
+codeally@936960c12810:~/project$ ./salon.sh
+
+~~~~~ MY SALON ~~~~~
+
+Welcome to My Salon, how can I help you?
+
+1 | Cut 2 | Color 3 | Perm 4 | Style 5 | Trim
+codeally@936960c12810:~/project$ ./salon.sh
+
+~~~~~ MY SALON ~~~~~
+
+Welcome to My Salon, how can I help you?
+
+1) Cut
+2) Color
+3) Perm
+4) Style
+5) Trim
+10
+
+I could not find that service. What would you like today?
+1) Cut
+2) Color
+3) Perm
+4) Style
+5) Trim
+1
+
+What's your phone number?
+555-555-5555
+
+I don't have a record for that phone number, what's your name?
+Fabio
+
+What time would you like your Cut, Fabio?
+10:30
+
+I have put you down for a Cut at 10:30, Fabio.
+codeally@936960c12810:~/project$ ./salon.sh
+~~~~~ MY SALON ~~~~~
+
+
+Welcome to My Salon, how can I help you?
+
+1) Cut
+2) Color
+3) Perm
+4) Style
+5) Trim
+1
+
+What's your phone number?
+444-444-4444
+
+I don't have a record for that phone number, what's your name?
+Sisita
+What time would you like your Cut, Sisita?
+15:30
+
+I have put you down for a Cut at 15:30, Sisita.
+codeally@936960c12810:~/project$ 
